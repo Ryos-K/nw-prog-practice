@@ -1,15 +1,15 @@
 
-udp: udp/udps udp/udpc
+udp: udp/server_udp udp/client_udp
 
-udp/udps: udp/udps.c
-	$(CC) udp/udps.c -o udp/udps
+udp/server_udp: udp/server_udp.c
+	$(CC) udp/server_udp.c -o udp/server_udp
 
-udp/udpc: udp/udpc.c
-	$(CC) udp/udpc.c -o udp/udpc
+udp/client_udp: udp/client_udp.c
+	$(CC) udp/client_udp.c -o udp/client_udp
 
 
 .PHONY: clean cleanudp
 clean: cleanudp
 
 cleanudp: 
-	rm -f udp/udps udp/udpc
+	rm -f udp/server_udp udp/client_udp
