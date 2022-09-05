@@ -7,7 +7,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
-#define BUFSIZE 1024
+#define BUFSIZE 32768
 #define MSGSIZE 1024
 #define DEFAULT_PORT 5320
 
@@ -33,7 +33,7 @@ int main(int argc, char const *argv[])
     bind(s_fd, (sockaddr *) &server, sizeof server);
     while (1)
     {
-        rn = recvfrom(s_fd, buf, BUFSIZE - 1, 0, (sockaddr *) &client, sizeof client);
+        rn = recvfrom(s_fd, buf, BUFSIZE - 1, 0, (sockaddr *) &client, (len = sizeof client, &len));
         buf[rn] = '\0';
         printf("receive from %s\n", inet_ntoa(client.sin_addr));
         printf("receive data %s:%d\n", buf, rn);
