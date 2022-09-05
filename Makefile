@@ -1,4 +1,6 @@
 
+all: udp tcp
+
 udp: udp_exp/server_udp udp_exp/client_udp
 
 udp_exp/server_udp: udp_exp/server_udp.c
